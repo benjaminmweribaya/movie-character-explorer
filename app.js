@@ -1,3 +1,9 @@
+// User Stories:
+// 1. As a movie fan, I want to see a list of characters so that I can explore my favorite ones.
+// 2. As a user, I want to click on a character to view more details about them.
+// 3. As a user, I want to search for characters by name so that I can find them easily.
+// 4. As a user, I want to switch between light and dark mode for a better viewing experience.
+
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchBar').value;
     if (query) {
