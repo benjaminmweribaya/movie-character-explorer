@@ -1,8 +1,14 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 header {
@@ -10,6 +16,7 @@ header {
     color: #fff;
     padding: 1rem;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #searchBar {
@@ -22,10 +29,29 @@ header {
     padding: 0.5rem;
 }
 
-#resultsContainer {
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+#character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.character-card {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.character-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#character-details {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
