@@ -60,7 +60,7 @@ function showCharacterDetails(character) {
 }
 
 // Search bar functionality to filter characters
-const searchBar = document.getElementById('search-bar');
+const searchBar = document.getElementById('searchBar');
 searchBar.addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase();
     const filteredCharacters = characters.filter(character =>
