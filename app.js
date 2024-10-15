@@ -72,5 +72,13 @@ searchBar.addEventListener('input', (e) => {
 // Toggle between light and dark mode
 const toggleSwitch = document.getElementById('theme-switch');
 toggleSwitch.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+    const body = document.body;
+    body.classList.toggle('dark-mode'); // Toggle dark mode class on body
+
+    // Update button text based on current mode
+    if (body.classList.contains('dark-mode')) {
+        toggleSwitch.textContent = 'Light Mode';
+    } else {
+        toggleSwitch.textContent = 'Dark Mode';
+    }
 });
