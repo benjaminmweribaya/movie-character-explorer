@@ -98,7 +98,7 @@ const searchBar = document.getElementById('searchBar');
 searchBar.addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase();
     const filteredCharacters = characters.filter(character =>
-        character.title.toLowerCase().includes(searchTerm)
+        character.name.toLowerCase().includes(searchTerm)
     );
     displayCharacters(filteredCharacters);
 });

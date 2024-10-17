@@ -23,6 +23,12 @@ body.dark-mode {
     padding: 20px;
 }
 
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
 button {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -36,6 +42,12 @@ header {
     padding: 1rem;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
 }
 
 #searchBar {
