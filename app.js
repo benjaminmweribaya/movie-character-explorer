@@ -24,14 +24,18 @@ function searchCharacters(query) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            if (data.results) {
+            if (data.results && data.results.length > 0) {
                 characters = data.results;
                 displayCharacters(characters);
             } else {
-                console.error('No results found.');
+                displayNoResultsFound();
             }
-        })
-        .catch(error => console.error('Error fetching character data:', error));
+        });
+
+    function displayNoResultsFound() {
+        const characterList = document.getElementById('character-list');
+        characterList.innerHTML = '<p>No characters found. Please try a different search.</p>';
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,18 +82,24 @@ function displayCharacters(characters) {
 
 // Show details of a selected character
 function showCharacterDetails(character) {
-    const characterDetails = document.getElementById('character-details');
-    const characterImage = character.profile_path
-        ? `https://image.tmdb.org/t/p/w300${character.profile_path}`
-        : 'https://placehold.co/300x450';
+    const url = `${baseUrl}/person/${character.id}?api_key=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(details => {
+            const characterImage = details.profile_path
+                ? `https://image.tmdb.org/t/p/w300${details.profile_path}`
+                : 'https://placehold.co/300x450';
 
-    characterDetails.innerHTML = `
-        <h2>${character.name}</h2>
-        <img src="${characterImage}" alt="${character.name}">
-        <p>Known for: ${character.known_for_department}</p>
-        <p>Popularity: ${character.popularity}</p>
-        <p>Biography: ${character.biography ? character.biography : 'Biography not available.'}</p>
-    `;
+            const characterDetails = document.getElementById('character-details');
+            characterDetails.innerHTML = `
+                <h2>${details.name}</h2>
+                <img src="${characterImage}" alt="${details.name}">
+                <p>Known for: ${details.known_for_department}</p>
+                <p>Popularity: ${details.popularity}</p>
+                <p>Biography: ${details.biography || 'Biography not available.'}</p>
+            `;
+        })
+        .catch(error => console.error('Error fetching character details:', error));
 }
 
 // Search bar functionality to filter characters
