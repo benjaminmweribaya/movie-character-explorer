@@ -29,6 +29,19 @@ body.dark-mode {
     right: 1rem;
 }
 
+.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.dark-mode .character-card {
+    background-color: #444;
+}
+
+.dark-mode .character-details {
+    background-color: #444;
+}
+
 button {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -37,7 +50,7 @@ button {
 }
 
 header {
-    background: #333;
+    background: black;
     color: #fff;
     padding: 1rem;
     text-align: center;

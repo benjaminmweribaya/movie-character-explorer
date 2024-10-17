@@ -19,6 +19,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
 
 // Search for characters using TMDb API
 function searchCharacters(query) {
+    console.log(`Searching for: ${query}`);
     const url = `${baseUrl}/search/person?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
     fetch(url)
         .then(response => response.json())
@@ -32,8 +33,6 @@ function searchCharacters(query) {
         })
         .catch(error => console.error('Error fetching character data:', error));
 }
-console.log(`Searching for: ${query}`);
-// API call logic will go here
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchPopularCharacters();
