@@ -90,5 +90,6 @@ header {
 footer {
     text-align: center;
     padding: 20px;
+    margin: 20px;
     background-color: aqua;
 }
