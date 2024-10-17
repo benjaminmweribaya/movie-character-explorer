@@ -39,6 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchPopularCharacters();
 });
 
+function fetchPopularCharacters() {
+    const url = `${baseUrl}/person/popular?api_key=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.results) {
+                characters = data.results;
+                displayCharacters(characters);
+            } else {
+                console.error('No results found.');
+            }
+        })
+        .catch(error => console.error('Error fetching popular characters:', error));
+}
+
 function displayCharacters(characters) {
     const characterList = document.getElementById('character-list');
     characterList.innerHTML = '';
@@ -47,13 +62,14 @@ function displayCharacters(characters) {
         const characterCard = document.createElement('div');
         characterCard.className = 'character-card';
 
-        // Use character image if available, otherwise use a placeholder
-        const characterImage = character.image ? character.image : 'https://placehold.co/200x300';
+        const characterImage = character.profile_path
+            ? `https://image.tmdb.org/t/p/w200${character.profile_path}`
+            : 'https://placehold.co/200x300';
 
         characterCard.innerHTML = `
-            <img src="${character.image}" alt="${character.title}">
-            <h2>${character.title}</h2>
-            <p>${character.description.slice(0, 100)}...</p>
+            <img src="${characterImage}" alt="${character.name}">
+            <h2>${character.name}</h2>
+            <p>Known for: ${character.known_for_department}</p>
         `;
         characterCard.addEventListener('click', () => showCharacterDetails(character));
         characterList.appendChild(characterCard);
