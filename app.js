@@ -8,7 +8,7 @@ const apiKey = '740459d50c5d79d6b1c5f6c2114f8b1e';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 // Global array to store fetched characters
-let characters = []; 
+let characters = [];
 
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchBar').value;
@@ -19,19 +19,24 @@ document.getElementById('searchButton').addEventListener('click', () => {
 
 // Search for characters using TMDb API
 function searchCharacters(query) {
-    // This function will interact with the API to fetch character data
-    console.log(`Searching for: ${query}`);
-    // API call logic will go here
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('https://ghibliapi.vercel.app/films')
+    const url = `${baseUrl}/search/person?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
+    fetch(url)
         .then(response => response.json())
         .then(data => {
-            characters = data; // Store fetched characters in the global array
-            displayCharacters(data);
+            if (data.results) {
+                characters = data.results;
+                displayCharacters(characters);
+            } else {
+                console.error('No results found.');
+            }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error fetching character data:', error));
+}
+console.log(`Searching for: ${query}`);
+// API call logic will go here
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchPopularCharacters();
 });
 
 function displayCharacters(characters) {
