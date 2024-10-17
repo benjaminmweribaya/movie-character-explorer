@@ -4,7 +4,11 @@
 // 3. As a user, I want to search for characters by name so that I can find them easily.
 // 4. As a user, I want to switch between light and dark mode for a better viewing experience.
 
-let characters = []; // Global array to store fetched characters
+const apiKey = '740459d50c5d79d6b1c5f6c2114f8b1e';
+const baseUrl = 'https://api.themoviedb.org/3';
+
+// Global array to store fetched characters
+let characters = []; 
 
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchBar').value;
@@ -13,6 +17,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
     }
 });
 
+// Search for characters using TMDb API
 function searchCharacters(query) {
     // This function will interact with the API to fetch character data
     console.log(`Searching for: ${query}`);

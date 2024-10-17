@@ -12,16 +12,36 @@
 <body>
     <header>
         <h1>Movie Character Explorer</h1>
-        <input type="text" id="searchBar" placeholder="Search for a character...">
-        <button id="searchButton">Search</button>
+        <div class="theme-toggle">
+            <button id="theme-switch">Dark Mode</button>
+        </div>
     </header>
 
-    <button id="theme-switch">Dark Mode</button>
+    <main>
+        <section class="search-section">
+            <input type="text" id="searchBar" placeholder="Search for a character..." />
+            <button id="searchButton">Search</button>
+        </section>
 
-    <main id="character-list">
-    <section id="character-details"></section>
-        <!-- Character results will be displayed here -->
+        <section class="character-section">
+            <div id="character-list" class="character-list">
+                <!-- Character cards will be dynamically added here -->
+            </div>
+        </section>
+
+        <section class="details-section">
+            <div id="character-details" class="character-details">
+                <!-- Character details will be dynamically displayed here -->
+                <p>Select a character to see more details.</p>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Character Explorer. All Rights Reserved.</p>
+        <p>Developed by Mr. Benjamin Mweri Baya</p>
+    </footer>
+
 </body>
 
 </html>
