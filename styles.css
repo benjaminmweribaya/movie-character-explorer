@@ -84,15 +84,17 @@ header {
 
 #character-details {
     margin-top: 20px;
-    background: white;
+    background-color: white;
     padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    margin: 20px;
     background-color: aqua;
+    color: black;
+    bottom: 0;
+    width: 100%;
 }
