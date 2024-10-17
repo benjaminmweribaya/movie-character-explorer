@@ -54,6 +54,7 @@ function fetchPopularCharacters() {
         .catch(error => console.error('Error fetching popular characters:', error));
 }
 
+// Display characters on the page
 function displayCharacters(characters) {
     const characterList = document.getElementById('character-list');
     characterList.innerHTML = '';
@@ -76,12 +77,19 @@ function displayCharacters(characters) {
     });
 }
 
+// Show details of a selected character
 function showCharacterDetails(character) {
     const characterDetails = document.getElementById('character-details');
+    const characterImage = character.profile_path
+        ? `https://image.tmdb.org/t/p/w300${character.profile_path}`
+        : 'https://placehold.co/300x450';
+
     characterDetails.innerHTML = `
-        <h2>${character.title}</h2>
-        <img src="${character.image}" alt="${character.title}">
-        <p>${character.description}</p>
+        <h2>${character.name}</h2>
+        <img src="${characterImage}" alt="${character.name}">
+        <p>Known for: ${character.known_for_department}</p>
+        <p>Popularity: ${character.popularity}</p>
+        <p>Biography: ${character.biography ? character.biography : 'Biography not available.'}</p>
     `;
 }
 
