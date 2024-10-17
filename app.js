@@ -107,11 +107,16 @@ const toggleSwitch = document.getElementById('theme-switch');
 toggleSwitch.addEventListener('click', () => {
     const body = document.body;
     body.classList.toggle('dark-mode'); // Toggle dark mode class on body
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    toggleSwitch.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+});
 
-    // Update button text based on current mode
-    if (body.classList.contains('dark-mode')) {
+// Apply saved theme on load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
         toggleSwitch.textContent = 'Light Mode';
-    } else {
-        toggleSwitch.textContent = 'Dark Mode';
     }
+    fetchPopularCharacters();
 });
