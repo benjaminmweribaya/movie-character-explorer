@@ -3,7 +3,7 @@
 Welcome to the **Movie Character Explorer**! This is a Single Page Application (SPA) built using **HTML**, **CSS**, and **JavaScript** that allows users to explore and search for movie characters through a public API. The app provides a user-friendly interface to search for characters, display detailed information, and interact with the data in various ways. Users can dive into the world of cinema by discovering new characters, reading trivia, and saving their favorites for easy access.
 
 ## Author
-[Mr. Benjamin Mweri Baya]
+Mr. Benjamin Mweri Baya
 
 ## Live Site
 [Visit the Movie Character Explorer](https://benjaminmweribaya.github.io/movie-character-explorer/)
@@ -33,7 +33,7 @@ Welcome to JavaScript Project Mode! This project integrates everything learned u
 - **Responsive Design:** The app is fully responsive, ensuring a great user experience on both desktop and mobile devices.
 
 ## Screenshots
-![Movie Character Explorer Screenshot](path/to/screenshot.png)
+![Movie Character Explorer Screenshot](./Movie%20Character%20Explorer%20Screenshot%20.png)
 
 ## Getting Started
 
